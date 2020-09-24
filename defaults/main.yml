@@ -1,6 +1,6 @@
 ---
 update_cache: "yes"
-mount_dir_mode: "777"
-mount_dir_owner: "root"
-mount_dir_group: "root"
+mount_path_mode: "777"
+mount_path_owner: "root"
+mount_path_group: "root"
 
