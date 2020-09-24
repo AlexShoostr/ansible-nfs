@@ -1,0 +1,25 @@
+- name: install nfs-client
+  apt:
+    pkg: nfs-common
+    state: present
+    update_cache: "{{ apt_update_cache }}"
+    
+
+- name: create mount dir
+  file:
+    path: "{{ mount_path }}"
+    state: directory
+    mode: "{{ mount_path_mode }}"
+    owner: "{{ mount_path_owner }}"
+    group: "{{ mount_path_group }}"
+
+
+- name: mount the nfsshare
+  mount:
+    fstype: nfs
+    opts: defaults
+    dump: 0
+    passno: 0
+    state: mounted
+    src: "{{ mount_src }}"
+    path: "{{ mount_path }}"
